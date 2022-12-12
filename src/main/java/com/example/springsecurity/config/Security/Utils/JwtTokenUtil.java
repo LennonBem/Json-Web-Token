@@ -100,7 +100,7 @@ public class JwtTokenUtil {
     return username;
   }
   public Date gerarDataExpiracao(){
-    Long currentDate = System.currentTimeMillis();
+     Long currentDate = System.currentTimeMillis();
     return new Date(System.currentTimeMillis() + connectionFactory.getExpiration() * 1000);
   }
 
