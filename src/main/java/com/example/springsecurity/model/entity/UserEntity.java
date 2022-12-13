@@ -30,9 +30,4 @@ public class UserEntity  implements Serializable {
 
 
 
-
-
-
-
-
 }

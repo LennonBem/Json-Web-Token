@@ -10,6 +10,7 @@ import org.jetbrains.annotations.NotNull;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -42,6 +43,9 @@ import java.util.Optional;
 
 
 
+
+
+
         @Autowired
         private AuthenticationManager authenticationManager;
         @Autowired
@@ -62,7 +66,7 @@ import java.util.Optional;
                         .add(error.getDefaultMessage()));
                 return ResponseEntity.badRequest().body(response);
             }
-            log.info("Gerando token para o email {}.", authenticationDto.getEmail());
+            log.info("Gerando token para o email {}." , authenticationDto.getEmail());
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
                             authenticationDto.getEmail(), authenticationDto.getSenha()));
